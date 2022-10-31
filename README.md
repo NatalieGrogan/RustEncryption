@@ -2,21 +2,22 @@ This project is my attempt to learn Rust. It is in no way intended for real worl
 
 To use this library you need to create an El Gamal struct.
 
-   // You can select 256, 384, 521 bit encryption
+  ```
+  // You can select 256, 384, 521 bit encryption
    // 256 - Curves::TwoFiveSix
    // 384 - Curves::ThreeEightFour
    // 521 - Curves::FiveTwoOne
    let el_gamal = ElGamal::new(Curves::TwoFiveSix);
-
+```
 
 to encrypt use
 
-   let cipher_text = encrypt(&el_gamal.public_key(), &el_gamal.curve(), &plain_text);
+   ```let cipher_text = encrypt(&el_gamal.public_key(), &el_gamal.curve(), &plain_text);```
 
 
 to decrypt
 
-   let message = decrypt(&el_gamal.private_key(), el_gamal.curve(), &cipher_text);
+  ``` let message = decrypt(&el_gamal.private_key(), el_gamal.curve(), &cipher_text);```
 
 
 The libray is built from the BigNum crate.` ModNom`s are modular numbers with a `value` and `field` each of which is a `BigUint`.You can add or multiply `ModNum`s with `self.add(&other)` and `self.mul(&other)` respectively. You can also invert them with `add_inv` or `mul_inv`, find the `sqrt`, or use `pow` do exponentiation.
